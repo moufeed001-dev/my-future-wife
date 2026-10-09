@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Future Wife ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #080710;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* NIGHT SKY */
+
+        .sky {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(
+                    ellipse at 50% 10%,
+                    rgba(99, 40, 145, 0.28),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    180deg,
+                    #100b20,
+                    #080710 75%
+                );
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff2bd;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* MAIN CONTENT */
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            padding: 25px 18px 50px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 9px 18px;
+            border: 1px solid rgba(255, 215, 130, 0.4);
+            border-radius: 30px;
+            color: #f5d58b;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .moon {
+            margin-top: 35px;
+            font-size: 55px;
+            filter: drop-shadow(0 0 18px #d7b5ff);
+            animation: moonGlow 3s infinite alternate;
+        }
+
+        @keyframes moonGlow {
+            from {
+                filter: drop-shadow(0 0 8px #b58cff);
+            }
+
+            to {
+                filter: drop-shadow(0 0 25px #f5d58b);
+            }
+        }
+
+        .eyebrow {
+            color: #e8c67d;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-top: 28px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(42px, 11vw, 76px);
+            line-height: 1.12;
+            margin: 20px 0;
+            font-weight: normal;
+            background: linear-gradient(
+                120deg,
+                #fff4cf,
+                #e9bd65,
+                #fff9e7
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .name {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 9vw, 58px);
+            color: #ff8eae;
+            font-style: italic;
+            text-shadow: 0 0 25px rgba(255, 80, 140, 0.25);
+        }
+
+        .subtitle {
+            max-width: 480px;
+            margin: 20px auto;
+            line-height: 1.9;
+            color: #d0c7dc;
+            font-size: 16px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 1px;
+            margin: 30px auto;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #e9bd65,
+                transparent
+            );
+        }
+
+        /* BUTTONS */
+
+        .button {
+            display: inline-block;
+            padding: 14px 23px;
+            margin: 8px 4px;
+            border: 1px solid #d9b768;
+            border-radius: 30px;
+            background: linear-gradient(
+                135deg,
+                #f1d58e,
+                #b88937
+            );
+            color: #160d19;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 25px rgba(232, 190, 95, 0.3);
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: #f5d58b;
+        }
+
+        /* CARDS */
+
+        .card {
+            margin: 45px auto;
+            padding: 28px 22px;
+            border: 1px solid rgba(229, 192, 112, 0.25);
+            border-radius: 22px;
+            background: linear-gradient(
+                145deg,
+                rgba(49, 29, 65, 0.55),
+                rgba(14, 12, 26, 0.85)
+            );
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        .card h2 {
+            color: #f5d58b;
+            font-size: 27px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #e0d9e8;
+            font-size: 16px;
+            line-height: 1.95;
+        }
+
+        .rose {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 22px;
+            padding: 20px 15px;
+            border-radius: 14px;
+            background: rgba(226, 183, 99, 0.08);
+            border: 1px solid rgba(226, 183, 99, 0.22);
+            color: #ffe5ac;
+            line-height: 1.9;
+            animation: appear 0.8s ease;
+        }
+
+        .hidden-message.show {
+            display: block;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* LOVE LETTER */
+
+        .letter {
+            color: #e8dfea;
+            text-align: left;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+        .letter strong {
+            color: #ff9fba;
+            font-weight: normal;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 25px;
+            color: #f5d58b;
+            font-style: italic;
+        }
+
+        /* DUA */
+
+        .dua {
+            color: #ffe7ac;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .small {
+            margin-top: 16px;
+            color: #bdb1ca;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* FLOATING HEARTS */
+
+        .heart {
+            position: fixed;
+            z-index: 5;
+            bottom: -30px;
+            pointer-events: none;
+            animation: floatUp 5s linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(35deg);
+                opacity: 0;
+            }
+        }
+
+        /* FOOTER */
+
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 25px 15px 40px;
+            color: #a99cb6;
+            font-size: 12px;
+            letter-spacing: 1px;
+            line-height: 2;
+        }
+
+        footer span {
+            color: #e9bd65;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .card {
+                padding: 24px 18px;
+                margin: 35px auto;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .card p,
+            .letter {
+                font-size: 15px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND SKY -->
+
+    <div class="sky" id="sky"></div>
+
+    <main class="container">
+
+        <div class="badge">
+            A LITTLE WORLD MADE FOR YOU
+        </div>
+
+        <div class="moon">🌙</div>
+
+        <p class="eyebrow">
+            A special message for
+        </p>
+
+        <h1>My Future<br>Wife</h1>
+
+        <div class="name">Aisha ❤️</div>
+
+        <div class="gold-line"></div>
+
+        <p class="subtitle">
+            If my heart could write a story,
+            your name would be on every page.
+            This little world is something I created
+            just for you, with love in every detail. 🥹🤍
+        </p>
+
+        <button class="button" onclick="openLetter()">
+            💌 Open Your Letter
+        </button>
+
+        <button class="button secondary" onclick="makeHearts()">
+            ❤️ Send You Hearts
+        </button>
+
+
+        <!-- LOVE LETTER -->
+
+        <section class="card" id="loveLetter">
+            <div class="rose">🌹</div>
+
+            <h2>To My Beautiful Aisha</h2>
+
+            <div class="letter">
+                My love, 🥹❤️
+
+                <br><br>
+
+                I am still learning how to write code.
+                Every day, I discover something new.
+                But today, I wanted to use what I am
+                learning to create something special
+                for someone who means so much to me.
+
+                <br><br>
+
+                <strong>That someone is you, Aisha.</strong>
+
+                <br><br>
+
+                This website may be made of code,
+                but the thought behind it comes from
+                my heart. I wanted you to have
+                something you could open and remember
+                as a little piece of my journey.
+
+                <br><br>
+
+                I pray that Allah guides us,
+                helps us grow in faith and kindness,
+                and grants us what is best for us.
+                May our future be filled with peace,
+                understanding, and beautiful memories,
+                Insha Allah. 🤲🤍
+
+                <br><br>
+
+                Thank you for encouraging me as I
+                learn and grow. You have given me
+                another reason to keep improving
+                myself and working toward my dreams.
+
+                <br><br>
+
+                You are truly special to me,
+                my future wife. ❤️🔐
+
+                <div class="signature">
+                    With love,<br>
+                    MOUFEED 💍<br>
+                    Your Future Husband
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECRET MESSAGE -->
+
+        <section class="card">
+            <div class="rose">🔐</div>
+
+            <h2>A Little Secret</h2>
+
+            <p>
+                My love, there is one more message
+                waiting just for you.
+            </p>
+
+            <br>
+
+            <button class="button" onclick="revealSecret()">
+                ✨ Reveal My Secret
+            </button>
+
+            <div class="hidden-message" id="secret">
+                Aisha, ❤️
+
+                <br><br>
+
+                If I could put one wish into the stars,
+                I would ask Allah to guide us toward
+                what is good, make our future beautiful,
+                and grant us the blessing of being
+                together in this dunya and in
+                Jannatul Firdausi, if He wills. 🤲🥹
+
+                <br><br>
+
+                You are the person this little
+                surprise was created for. 🌹🤍
+            </div>
+        </section>
+
+
+        <!-- PRAYER -->
+
+        <section class="card">
+            <div class="rose">🤲</div>
+
+            <h2>A Dua From My Heart</h2>
+
+            <p class="dua">
+                "Ya Allah, guide us toward what is
+                good, bless our intentions, increase
+                us in faith, and grant us peace
+                in our hearts."
+            </p>
+
+            <p class="small">
+                May Allah guide our steps, make our
+                future good for us, and grant us
+                Jannatul Firdausi by His mercy.
+                Ameen, Ya Rabb. 🤍
+            </p>
+        </section>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <section class="card">
+            <div class="rose">💍</div>
+
+            <h2>One Last Thing...</h2>
+
+            <p>
+                Aisha, this is my first little romantic
+                website made with my programming skills.
+                It is a small beginning, but I hope
+                it brings a big smile to your face.
+
+                <br><br>
+
+                Keep believing in your dreams,
+                keep smiling, and keep trusting
+                Allah's plan.
+
+                <br><br>
+
+                <span style="color:#f5d58b">
+                    MOUFEED ❤️ AISHA
+                </span>
+
+                <br><br>
+
+                A little world made with code,
+                inspired by you. 🌹✨
+            </p>
+
+            <div class="gold-line"></div>
+
+            <button class="button" onclick="makeHearts()">
+                ❤️ One More Smile
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        MADE WITH <span>❤️</span> AND CODE
+
+        <br>
+
+        MOUFEED CODE LAB 💻
+
+        <br>
+
+        A little surprise for AISHA 🌹
+    </footer>
+
+
+    <script>
+        // CREATE STARS IN THE NIGHT SKY
+
+        const sky = document.getElementById("sky");
+
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement("div");
+
+            star.className = "star";
+
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            star.style.animationDuration =
+                (2 + Math.random() * 3) + "s";
+
+            sky.appendChild(star);
+        }
+
+
+        // OPEN THE LOVE LETTER
+
+        function openLetter() {
+            const letter = document.getElementById("loveLetter");
+
+            letter.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            makeHearts();
+        }
+
+
+        // REVEAL THE SECRET MESSAGE
+
+        function revealSecret() {
+            const secret = document.getElementById("secret");
+
+            secret.classList.toggle("show");
+
+            if (secret.classList.contains("show")) {
+                makeHearts();
+            }
+        }
+
+
+        // CREATE FLOATING HEARTS
+
+        function makeHearts() {
+            const symbols = ["❤️", "💗", "💕", "💖", "🌹"];
+
+            for (let i = 0; i < 18; i++) {
+                const heart = document.createElement("div");
+
+                heart.className = "heart";
+
+                heart.textContent =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+
+                heart.style.left = Math.random() * 100 + "vw";
+
+                heart.style.fontSize =
+                    (16 + Math.random() * 22) + "px";
+
+                heart.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+                heart.style.animationDelay =
+                    Math.random() * 1.5 + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }
+        }
+    </script>
+
+</body>
+  </html>
